@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Radley
+- Font Author: Copyright 2011 The Radley Project Authors (https://github.com/googlefonts/RadleyFont)
+- Font Source: http://fonts.gstatic.com/s/radley/v20/LYjDdGzinEIjCN19oAlEpVs3VQ.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
