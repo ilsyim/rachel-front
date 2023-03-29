@@ -8,6 +8,7 @@ import Login from './pages/Login/Login'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import AddPhoto from './pages/AddPhoto/AddPhoto'
+import PhotoList from './pages/PhotoList/PhotoList'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -54,6 +55,7 @@ const App = () => {
       <div className='App'>
         <NavBar user={user} handleLogout={handleLogout} />
         <Routes>
+          <Route path="/" element={<PhotoList photos={photos} />} />
           <Route path="/add" element={<AddPhoto handleAddPhoto={handleAddPhoto} />}
           />
           <Route
