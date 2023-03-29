@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
 // page components
@@ -38,8 +38,16 @@ const App = () => {
 
   const handleAddPhoto = async newPhotoData => {
     const newPhoto = await photoService.create(newPhotoData)
-    setPhotos([...photos, newPhotoData])
+    setPhotos([...photos, newPhoto])
   }
+
+  useEffect(() => {
+    const fetchAllPhotos = async () =>  {
+      const photoData = await photoService.getAll()
+      setPhotos(photoData)
+    }
+    fetchAllPhotos()
+  }, [])
 
   return (
     <>
