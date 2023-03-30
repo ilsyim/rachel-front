@@ -14,6 +14,7 @@ function AddPhoto(props) {
   const [photoData, setPhotoData] = useState({})
 
   const {photoTitle, photoEvent, photoDate} = formData
+
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value})
   }
@@ -27,7 +28,7 @@ function AddPhoto(props) {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    props.handleAddPhoto(formData)
+    props.handleAddPhoto(formData, photoData.photo)
   }
   
 
