@@ -8,7 +8,8 @@ import Login from './pages/Login/Login'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import AddPhoto from './pages/AddPhoto/AddPhoto'
-import PhotoList from './pages/PhotoList/PhotoList'
+import Gallery from './pages/Gallery/Gallery'
+import EditPhoto from './pages/EditPhoto/EditPhoto'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -40,13 +41,13 @@ const App = () => {
   const handleAddPhoto = async (newPhotoData, photo) => {
     const newPhoto = await photoService.create(newPhotoData)
     if (photo) {
-      newPhoto.photo = await photoPhotoHelper(photo, newPhoto._id)
+      newPhoto.photo = await photoHelper(photo, newPhoto._id)
     }
     setPhotos([...photos, newPhoto])
     navigate('/')
   }
 
-  const photoPhotoHelper = async (photo, id) => {
+  const photoHelper = async (photo, id) => {
     const photoData = new FormData()
     photoData.append('photo', photo)
     return await photoService.addPhoto(photoData, id)
@@ -65,14 +66,27 @@ const App = () => {
     setPhotos(photos.filter(photo => photo._id !== deletedPhoto._id))
   }
 
+  const handleUpdatePhoto = async (updatedPhotoData, photo) => {
+    const updatedPhoto = await photoService.update(updatedPhotoData)
+    if (photo) {
+      updatedPhoto.photo = await photoHelper(photo, updatedPhoto._id)
+    }
+    const newPhotosArray = photos.map(photo =>
+      photo._id === updatedPhoto._id ? updatedPhoto : photo)
+      setPhotos(newPhotosArray)
+      navigate('/')
+  }
+  
+
   return (
     <>
       <div className='App'>
         <NavBar user={user} handleLogout={handleLogout} />
         <Routes>
-          <Route path="/" element={<PhotoList photos={photos} handleDeletePhoto={handleDeletePhoto} user={user}/>} />
+          <Route path="/" element={<Gallery photos={photos} handleDeletePhoto={handleDeletePhoto} user={user}/>} />
           <Route path="/add" element={<AddPhoto handleAddPhoto={handleAddPhoto} />}
           />
+          <Route path='/edit' element={<EditPhoto handleUpdatePhoto={handleUpdatePhoto}/>} />
           <Route
             path="/signup"
             element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}

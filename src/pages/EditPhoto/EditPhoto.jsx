@@ -1,15 +1,12 @@
 import { useState, useRef, useEffect } from "react"
+import { Link, useLocation } from 'react-router-dom'
 
-function AddPhoto(props) {
+function EditPhoto(props) {
   const formElement = useRef()
+  const location = useLocation()
+  const [formData, setFormData] = useState(location.state.photo)
 
-  const [validForm, setValidForm] = useState(false)
-
-  const [formData, setFormData] = useState ({
-    photoTitle: '',
-    photoEvent: '',
-    photoDate: {type: Date}
-  })
+  const [validForm, setValidForm] = useState(true)
 
   const [photoData, setPhotoData] = useState({})
 
@@ -28,14 +25,13 @@ function AddPhoto(props) {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    props.handleAddPhoto(formData, photoData.photo)
-    console.log(photoData.photo)
+    props.handleUpdatePhoto(formData, photoData.photo)
   }
   
 
 	return (
 		<>
-			<h1>Add Photo</h1>
+			<h1>Edit Photo</h1>
 			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 				<div className="form-group mb-3">
 					<label htmlFor="title-input" className="form-label">
@@ -80,9 +76,12 @@ function AddPhoto(props) {
             onChange={handleChange}
 					/>
 				</div>
+        <div className="d-grid">
+					<Link to="/" className="btn btn-danger btn-fluid">Cancel</Link>
+        </div>
         <div className="form-group mb-4">
 					<label htmlFor="photo-upload" className="form-label">
-						Upload Photo
+						{formData.photo ? "Replace existing photo" : "Add Photo"}
 					</label>
 					<input 
 						type="file"
@@ -98,7 +97,7 @@ function AddPhoto(props) {
 						className="btn btn-primary btn-fluid"
             disabled={!validForm}
 					>
-						Add Photo
+						Save Photo
 					</button>
 				</div>
 			</form>
@@ -106,4 +105,4 @@ function AddPhoto(props) {
 	)
 }
 
-export default AddPhoto
+export default EditPhoto

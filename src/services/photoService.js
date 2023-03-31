@@ -19,10 +19,11 @@ async function getAll() {
 }
 
 async function addPhoto(photoData, photoId) {
-  const res = await fetch(`${BASE_URL}/{photoId}/add-photo`, {
-    method: 'PUT',
-    headers: {
-      'Authorization': `Bearer ${tokenService.getToken()}`
+  console.log('photoId', photoId)
+  const res = await fetch(`${BASE_URL}/${photoId}/add-photo`, {
+    method: "PUT",
+    headers: { 
+      'Authorization': `Bearer ${tokenService.getToken()}`,
     },
     body: photoData
   })
@@ -39,9 +40,22 @@ async function deleteOne(id) {
   return res.json()
 }
 
+async function update(photo) {
+  const res = await fetch(`${BASE_URL}/${photo._id}`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(photo)
+  })
+  return res.json()
+}
+
 export {
 	create,
   getAll,
   addPhoto,
-  deleteOne
+  deleteOne,
+  update
 }
