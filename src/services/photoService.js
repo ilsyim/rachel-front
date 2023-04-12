@@ -52,10 +52,16 @@ async function update(photo) {
   return res.json()
 }
 
+async function show(photoId) {
+  const res = await fetch(`${BASE_URL}/${photoId}`)
+  return await res.json()
+}
+
 export {
 	create,
   getAll,
   addPhoto,
   deleteOne,
-  update
+  update,
+  show
 }

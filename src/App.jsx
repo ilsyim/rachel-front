@@ -21,6 +21,7 @@ import * as photoService from './services/photoService'
 
 // styles
 import './App.css'
+import PhotoShow from './pages/PhotoShow/PhotoShow'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -87,6 +88,7 @@ const App = () => {
           <Route path="/add" element={<AddPhoto handleAddPhoto={handleAddPhoto} />}
           />
           <Route path='/edit' element={<EditPhoto handleUpdatePhoto={handleUpdatePhoto}/>} />
+          <Route path="/photos/:photoId" element={<PhotoShow setPhotos={setPhotos} />} />
           <Route
             path="/signup"
             element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
