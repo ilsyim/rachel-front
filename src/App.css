@@ -36,6 +36,9 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  /* background-color: var(--background); */
+  /* border: ; */
+  border-radius: 2px;
 }
 
 .button {
@@ -43,4 +46,17 @@
   align-items: center;
   display: flex;
   padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.imgShow {
+  margin-top: 20px;
+}
+
+.paragraph {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 20px;
+
 }

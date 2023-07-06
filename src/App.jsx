@@ -65,6 +65,7 @@ const App = () => {
   const handleDeletePhoto = async id => {
     const deletedPhoto = await photoService.deleteOne(id)
     setPhotos(photos.filter(photo => photo._id !== deletedPhoto._id))
+    navigate('/')
   }
 
   const handleUpdatePhoto = async (updatedPhotoData, photo) => {
@@ -87,7 +88,7 @@ const App = () => {
           <Route path="/add" element={<AddPhoto handleAddPhoto={handleAddPhoto} />}
           />
           <Route path='/edit' element={<EditPhoto handleUpdatePhoto={handleUpdatePhoto}/>} />
-          <Route path="/photos/:photoId" element={<PhotoShow setPhotos={setPhotos} handleDeletePhoto={handleDeletePhoto}/>} />
+          <Route path="/photos/:photoId" element={<PhotoShow user={user} setPhotos={setPhotos} handleDeletePhoto={handleDeletePhoto}/>} />
           <Route
             path="/signup"
             element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}

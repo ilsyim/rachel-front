@@ -18,21 +18,37 @@ const PhotoShow = (props) => {
 
   return (
     <>
-      <div className='show'>
+      <div className='show' >
+        {props.user ?
         <div>
-          <img alt="" style={{width: '50%vw', height: '400px'}} src={
+          <img className='imgShow' alt="" style={{width: '50%vw', height: '400px'}} src={
             photo
             ? photo.photo
             : <p>"No photos yet"</p>}/>
           <div className='button'>
             <Link to="/">Back</Link>
+
             <Link className='btn btn-sm btn-warning' to='/edit' state={{photo}}>Edit</Link>
-            <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePhoto(photo._id)}>
+            <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePhoto(photo._id, props.photoData)}>
               Delete
             </button>
           </div>
             {photo.essay}
         </div>
+      :
+      <div>
+        
+      <img className='imgShow' alt="" style={{width: '50%vw', height: '400px'}} src={
+        photo
+        ? photo.photo
+        : <p>"No photos yet"</p>}/>
+        <div className='paragraph'>
+          {photo.essay}
+          <Link to="/">Back</Link>
+        </div>
+      </div>
+
+        }
       </div>
     </>
   )

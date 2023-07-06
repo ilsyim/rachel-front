@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from "react"
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate} from 'react-router-dom'
 
 function EditPhoto(props) {
   const formElement = useRef()
   const location = useLocation()
   const [formData, setFormData] = useState(location.state.photo)
+	const navigate = useNavigate()
 
   const [validForm, setValidForm] = useState(true)
 
@@ -27,6 +28,7 @@ function EditPhoto(props) {
     evt.preventDefault()
     try {
       props.handleUpdatePhoto(formData)
+			navigate('/photos/:photoId', {state: {photo: photoData, photoId: photoData.photoId}})
     } catch (err) {
       console.log(err)
     }
