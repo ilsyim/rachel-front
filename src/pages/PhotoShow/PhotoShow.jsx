@@ -16,11 +16,23 @@ const PhotoShow = (props) => {
     fetchPhoto()
   })
 
-
   return (
     <>
-      <div>
-        <img src={photo.photo}/>
+      <div className='show'>
+        <div>
+          <img alt="" style={{width: '50%vw', height: '400px'}} src={
+            photo
+            ? photo.photo
+            : <p>"No photos yet"</p>}/>
+          <div className='button'>
+            <Link to="/">Back</Link>
+            <Link className='btn btn-sm btn-warning' to='/edit' state={{photo}}>Edit</Link>
+            <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePhoto(photo._id)}>
+              Delete
+            </button>
+          </div>
+            {photo.essay}
+        </div>
       </div>
     </>
   )

@@ -31,3 +31,16 @@
   width: 300px;
   height: 300px;
 }
+
+.show {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.button {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding-top: 30px;
+}

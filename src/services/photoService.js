@@ -40,7 +40,7 @@ async function deleteOne(id) {
   return res.json()
 }
 
-async function update(photo) {
+async function update(photo, photoId) {
   const res = await fetch(`${BASE_URL}/${photo._id}`, {
     method: 'PUT',
     headers: {
@@ -57,11 +57,12 @@ async function show(photoId) {
   return await res.json()
 }
 
+
 export {
 	create,
   getAll,
   addPhoto,
   deleteOne,
   update,
-  show
+  show,
 }

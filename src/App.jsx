@@ -1,6 +1,6 @@
 // npm modules
 import { useState, useEffect } from 'react'
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, } from 'react-router-dom'
 
 // page components
 import Signup from './pages/Signup/Signup'
@@ -77,7 +77,6 @@ const App = () => {
       setPhotos(newPhotosArray)
       navigate('/')
   }
-  
 
   return (
     <>
@@ -88,7 +87,7 @@ const App = () => {
           <Route path="/add" element={<AddPhoto handleAddPhoto={handleAddPhoto} />}
           />
           <Route path='/edit' element={<EditPhoto handleUpdatePhoto={handleUpdatePhoto}/>} />
-          <Route path="/photos/:photoId" element={<PhotoShow setPhotos={setPhotos} />} />
+          <Route path="/photos/:photoId" element={<PhotoShow setPhotos={setPhotos} handleDeletePhoto={handleDeletePhoto}/>} />
           <Route
             path="/signup"
             element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}

@@ -10,24 +10,27 @@ function EditPhoto(props) {
 
   const [photoData, setPhotoData] = useState({})
 
-  const {photoTitle, photoEvent, photoDate} = formData
+  const {photoTitle, photoEvent, photoDate, essay} = formData
 
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value})
   }
 
   const handleChangePhoto = evt => {
-		setPhotoData({ photo: evt.target.files[0] })
+		setFormData({ photo: evt.target.files[0] })
 	}
 
   useEffect(() => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)}, [formData])
 
-  const handleSubmit = evt => {
+  const handleSubmit = async evt => {
     evt.preventDefault()
-    props.handleUpdatePhoto(formData, photoData.photo)
+    try {
+      props.handleUpdatePhoto(formData)
+    } catch (err) {
+      console.log(err)
+    }
   }
-  
 
 	return (
 		<>
@@ -63,23 +66,26 @@ function EditPhoto(props) {
             onChange={handleChange}
 					/>
 				</div>
-				<div className="form-group mb-4">
+				{/* <div className="form-group mb-4">
 					<label htmlFor="photoDate-input" className="form-label">
 						Date
 					</label>
 					<input 
-						type="date"
+						type="datetime"
 						className="form-control"
 						id="photoDate"
 						name="photoDate"
-            value={photoDate}
+            value={location.state.photo.photoDate}
             onChange={handleChange}
 					/>
-				</div>
+				</div> */}
+        <div className="form-group mb-4">
+            <textarea className="textArea" value={formData.essay} name="essay" onChange={handleChange} id="" cols="120" rows="10"></textarea>
+        </div>
         <div className="d-grid">
 					<Link to="/" className="btn btn-danger btn-fluid">Cancel</Link>
         </div>
-        <div className="form-group mb-4">
+        {/* <div className="form-group mb-4">
 					<label htmlFor="photo-upload" className="form-label">
 						{formData.photo ? "Replace existing photo" : "Add Photo"}
 					</label>
@@ -90,7 +96,7 @@ function EditPhoto(props) {
 						name="photo"
             onChange={handleChangePhoto}
 					/>
-        </div>
+        </div> */}
 				<div className="d-grid">
 					<button
 						type="submit"

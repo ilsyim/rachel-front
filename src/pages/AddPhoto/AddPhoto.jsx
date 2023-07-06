@@ -8,7 +8,8 @@ function AddPhoto(props) {
   const [formData, setFormData] = useState ({
     photoTitle: '',
     photoEvent: '',
-    photoDate: {type: Date}
+    photoDate: {type: Date},
+    essay: '',
   })
 
   const [photoData, setPhotoData] = useState({})
@@ -39,6 +40,18 @@ function AddPhoto(props) {
 			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 				<div className="form-group mb-3">
 					<label htmlFor="title-input" className="form-label">
+        <div className="form-group mb-4">
+					<label htmlFor="photo-upload" className="form-label">
+						Upload Photo
+					</label>
+					<input 
+						type="file"
+						className="form-control"
+						id="photo-upload"
+						name="photo"
+            onChange={handleChangePhoto}
+					/>
+        </div>
 						Photo Title (required)
 					</label>
 					<input 
@@ -81,16 +94,7 @@ function AddPhoto(props) {
 					/>
 				</div>
         <div className="form-group mb-4">
-					<label htmlFor="photo-upload" className="form-label">
-						Upload Photo
-					</label>
-					<input 
-						type="file"
-						className="form-control"
-						id="photo-upload"
-						name="photo"
-            onChange={handleChangePhoto}
-					/>
+            <textarea className="textArea" value={photoData.essay} name="essay" onChange={handleChange} id="" cols="120" rows="10" placeholder="Insert Writing Here..."></textarea>
         </div>
 				<div className="d-grid">
 					<button
