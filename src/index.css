@@ -27,8 +27,8 @@ a {
 }
 
 a:hover {
-  color: var(--accent);
-  background-color: var(--black);
+  color: var(--black);
+  background-color: var(--accent);
 }
 
 a.active {
