@@ -29,13 +29,17 @@
 
 .card {
   width: 300px;
-  height: 400px;
+  height: 420px;
   background-color: var(--black);
+}
+
+h2 {
+  font-size: 25px;
 }
 
 .card:hover {
   width: 300px;
-  height: 400px;
+  height: 420px;
   color: var(--black);
   background-color: var(--accent);
 }
@@ -47,6 +51,24 @@
   /* background-color: var(--background); */
   /* border: ; */
   border-radius: 2px;
+  text-align: center;
+}
+
+.card-img-top {
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+  object-fit: cover;
+}  
+
+.imgShow {
+  width: 50%vw;
+  height: 400px;
+}
+
+.imgShow:hover {
+  transition: 3ms;
+  transform: scale(1.5);
 }
 
 .button {
@@ -55,10 +77,6 @@
   display: flex;
   padding-top: 30px;
   padding-bottom: 30px;
-}
-
-.imgShow {
-  margin-top: 20px;
 }
 
 .paragraph {

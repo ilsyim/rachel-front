@@ -21,7 +21,7 @@ const PhotoShow = (props) => {
       <div className='show' >
         {props.user ?
         <div>
-          <img className='imgShow' alt="" style={{width: '50%vw', height: '400px'}} src={
+          <img className='imgShow' alt="" src={
             photo
             ? photo.photo
             : <p>"No photos yet"</p>}/>
