@@ -4,7 +4,7 @@ const NavBar = ({ user, handleLogout }) => {
   return (
     <>
       <header className="App-header">
-        Rachel's Photography
+        <Link to="/" className='rachel'>Rachel's Photography</Link> 
         {user ?
           <nav>
             <Link to="/">Photos</Link>

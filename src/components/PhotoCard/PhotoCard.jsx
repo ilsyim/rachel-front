@@ -7,7 +7,7 @@ function PhotoCard({photo, handleDeletePhoto, user}) {
         <img src={photo.photo} alt="Taken by Rachel" className='card-img-top'  style={{width: '280px'}}/>
         <div className="card-body">
           <h2 className="card-text">{photo.photoTitle}</h2>
-          <p className="card-text">{photo.photoEvent} on {photo.photoDate}</p>
+          <p className="card-text">{photo.photoEvent} on {photo.photoDate}</p>  {/* change date later */}
         </div>
         {user?.profile === photo.owner._id &&
           <div className="card-footer">

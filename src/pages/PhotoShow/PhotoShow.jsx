@@ -20,7 +20,8 @@ const PhotoShow = (props) => {
     <>
       <div className='show' >
         {props.user ?
-        <div>
+        
+        <div className='imgBack'>
           <img className='imgShow' alt="" src={
             photo
             ? photo.photo
@@ -33,10 +34,12 @@ const PhotoShow = (props) => {
               Delete
             </button>
           </div>
+          <div className='essay'>
             {photo.essay}
+          </div>
         </div>
       :
-      <div>
+      <div className='imgBack'>
         
       <img className='imgShow' alt="" style={{width: '50%vw', height: '400px'}} src={
         photo

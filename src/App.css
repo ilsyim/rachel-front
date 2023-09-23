@@ -27,6 +27,11 @@
   margin-bottom: 5vmin;
 }
 
+a.rachel:hover {
+  background-color: black;
+  color: var(--accent);
+}
+
 .card {
   width: 300px;
   height: 420px;
@@ -39,7 +44,7 @@ h2 {
 
 .card:hover {
   width: 300px;
-  height: 420px;
+  height: 430px;
   color: var(--black);
   background-color: var(--accent);
 }
@@ -48,10 +53,10 @@ h2 {
   justify-content: center;
   align-items: center;
   display: flex;
-  /* background-color: var(--background); */
   /* border: ; */
   border-radius: 2px;
   text-align: center;
+  font-family:Georgia, 'Times New Roman', Times, serif; /*change fonts throughout app */
 }
 
 .card-img-top {
@@ -64,11 +69,28 @@ h2 {
 .imgShow {
   width: 50%vw;
   height: 400px;
+  padding-top: 30px;
 }
 
 .imgShow:hover {
   transition: 3ms;
   transform: scale(1.5);
+}
+
+.imgBack {
+  background-color: rgba(0, 0, 0, .9);
+  overflow: scroll;
+  position: relative;
+  width: 700px;
+  height: 700px;
+  color: var(--accent);
+}
+
+.essay {
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .button {
