@@ -23,6 +23,7 @@ function AddPhoto(props) {
   const handleChangePhoto = evt => {
 		setPhotoData({ photo: evt.target.files[0] })
 	}
+	console.log(handleChangePhoto, 'upload')
 
   useEffect(() => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)}, [formData])
@@ -30,7 +31,7 @@ function AddPhoto(props) {
   const handleSubmit = evt => {
     evt.preventDefault()
     props.handleAddPhoto(formData, photoData.photo)
-    console.log(photoData.photo)
+    console.log(photoData.photo, 'photo')
   }
   
 
