@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { show } from '../../services/photoService'
 
 const PhotoShow = (props) => {
-
+  console.log(props, )
   const [photo, setPhoto] = useState({})
   const location = useLocation()
 
@@ -26,14 +26,18 @@ const PhotoShow = (props) => {
             photo
             ? photo.photo
             : <p>"No photos yet"</p>}/>
-          <div className='button'>
-            <Link to="/">Back</Link>
-
-            <Link className='btn btn-sm btn-warning' to='/edit' state={{photo}}>Edit</Link>
-            <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePhoto(photo._id, props.photoData)}>
-              Delete
-            </button>
-          </div>
+              
+              <div className='button'>
+                <Link to="/">Back</Link>
+                {props.user._id === photo.owner?._id &&
+                <>
+                <Link className='btn btn-sm btn-warning' to='/edit' state={{photo}}>Edit</Link>
+                <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePhoto(photo._id, props.photoData)}>
+                  Delete
+                </button>
+                </>              
+                }
+              </div>
           <div className='essay'>
             {photo.essay}
           </div>

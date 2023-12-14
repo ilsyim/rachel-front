@@ -66,6 +66,10 @@ h2 {
   object-fit: cover;
 }  
 
+.card-footer {
+  background-color: transparent;
+}
+
 .imgShow {
   width: 50%vw;
   height: 400px;
