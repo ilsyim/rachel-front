@@ -29,7 +29,7 @@ const PhotoShow = (props) => {
               
               <div className='button'>
                 <Link to="/">Back</Link>
-                {props.user._id === photo.owner?._id &&
+                {props.user.profile === photo.owner &&
                 <>
                 <Link className='btn btn-sm btn-warning' to='/edit' state={{photo}}>Edit</Link>
                 <button className="btn btn-sm btn-danger m-left" onClick={() => props.handleDeletePhoto(photo._id, props.photoData)}>
