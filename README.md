@@ -22,4 +22,4 @@ Screenshot:
 ## Credits:
 - [Favicon made with Favicon.io](https://favicon.io/favicon-generator/)
 - stack overflow for image uploading issues
-- Date/Time code help from an old project, social(fx)(https://github.com/ilsyim/socialfx-front-end)
+- Date/Time code help from an old project, [social(fx)](https://github.com/ilsyim/socialfx-front-end)
