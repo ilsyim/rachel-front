@@ -14,6 +14,8 @@ My friend asked if I would be able to create a website where she could showcase 
 - JavaScript
 - React
 - Bootstrap
+- Cloudinary
+- MongoDB
   
 Screenshot:
 [<img src="./public/rachel.png">]()
