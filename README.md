@@ -1,5 +1,5 @@
 # Rachel Bui's Photography Portfolio
-My friend asked if I would be able to create an website where she could showcase the concert photos she's taken over the years. I'm still working on fixing the date/time display, mobile view, and possibly changing the name of this app. But this app only exists because my friend asked me to build it, so we'll see 😄 
+My friend asked if I would be able to create a website where she could showcase the concert photos she's taken over the years. I'm still working on fixing the date/time display, mobile view, and possibly changing the name of this app and the color scheme. But this app only exists because my friend asked me to build it, so we'll see 😄 
 
 
 ## Deployed Site:
