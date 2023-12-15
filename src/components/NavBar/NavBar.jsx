@@ -10,7 +10,8 @@ const NavBar = ({ user, handleLogout }) => {
             <Link to="/">Photos</Link>
             <Link to="/add">Add Photo</Link>
             <Link to="" onClick={handleLogout}>Log Out</Link>
-            <Link to="/changePassword">Change Password</Link>
+            {/* <Link to="/changePassword">Change Password</Link> */}
+            {/* is the change password component needed? */}
           </nav>
         :
           <nav>
